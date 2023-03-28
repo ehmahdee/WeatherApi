@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <link rel="stylesheet" href="./assets/css/index.css">
+    <title>Weather Dashboard</title>
+
+    <!-- Font links -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <!-- dayjs link -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+      integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U="
+      crossorigin="anonymous"
+    ></script>
+</head>
+
+
+<nav class="navbar">
+    <h1 class="navbar-brand">Weather Dashboard</h1>
+    <div class="navbar-end" >
+    <p id="headerTime">Current Time: </p>
+    </div>
+</nav>
+
+
+<body>
+    <!-- City lookup input and button -->
+<div class="columns">
+<div class="column">
+    <section class="box border">
+        <div class="searchCard">
+            <p>Search for a City:</p>
+            <input class="input is-medium" id="locationBox" placeholder="Los Angeles">
+        </div>
+        <div class="has-text-centered">
+        <button type="button" class="button is-info" id="go-button" >Go!</button>
+        </div>
+    </section>
+
+    <!-- City Container -->
+    
+    <div class="card border">
+        
+    </div>
+</div>
+<div class="column is-three-fifths">
+    <!-- City, Date, Temp, Wind, Humidity Box -->
+
+    <section class="box border" id="currentDay">
+        <ul>
+            <li id="currentCity"></li>
+            <li id="currentTemp">Temp: </li>
+            <li id="currentWind">Wind: </li>
+            <li id="currentHumidity">Humidity: </li>
+            <li id="currentSunrise">Sunrise: </li>
+            <li id="currentSunset">Sunset: </li>
+        </ul>
+    </section>
+
+    <!-- Five day forecast cards -->
+    <!-- one day is 8 array objects. so [0] - [7] is one day -->
+
+    <section class="box border">
+        <p>5-Day Forecast:</p>
+    </section>
+</div>
+</div>
+    <!--Script section-->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"
+        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    <script src="./assets/js/index.js"></script>
+</body>
+</html>
+

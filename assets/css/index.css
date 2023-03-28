@@ -1,0 +1,59 @@
+* {
+    margin: .5rem;
+}
+
+nav {
+    background-image: linear-gradient(to right, #8ab7f2, #1a6bd6);
+    width: 100vw;
+    margin-top: 0%;
+    margin-left: 0%;
+}
+
+nav h1{
+    font-size: 40px;
+    color: white;
+    font-family: 'Red Hat Display', sans-serif;
+    margin-left: 1rem;
+}
+
+ul {
+    list-style: none;
+}
+
+.border{
+    border: solid gray 1px;
+}
+
+.searchCard {
+text-align: left;
+}
+
+.cityContainer {
+
+}
+
+.userCity{
+
+}
+
+.fiveDay {
+
+}
+
+#search-button {
+
+}
+
+
+#headerTime{
+    font-size: 30px;
+    color: white;
+    font-family: 'Red Hat Display', sans-serif;
+    margin-right: 1rem;
+}
+
+#locationBox {
+    height: 40px;
+}
+
+@import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css";
