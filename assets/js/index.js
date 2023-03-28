@@ -22,12 +22,20 @@ goButton.addEventListener('click', () => {
     localStorage.setItem('city', userCity);
     console.log(userCity)
 
-    var heroCity = localStorage.getItem('userCity')
+    var heroCity = localStorage.getItem('city')
+    if (heroCity) {
     var cityTitle = document.createElement('h2')
-    cityTitle.textContent =heroCity
-    var currentDay = document.getElementById('currentCity')
-    currentDay.appendChild(cityTitle)
+    cityTitle.textContent = heroCity;
 
+    var currentDay = document.getElementById('currentCity');
+    while (currentDay.firstChild) {
+    currentDay.removeChild(currentDay.firstChild);
+    }
+
+    currentDay.appendChild(cityTitle);
+} else {
+    console.log('City not found')
+}
   });
 
 // grabbing city from local storage, passing it to current-day box

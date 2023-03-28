@@ -44,6 +44,11 @@ text-align: left;
 
 }
 
+#currentCity {
+    font-size: 40px;
+    font-family: 'Red Hat Display', sans-serif;
+    text-align: center;
+}
 
 #headerTime{
     font-size: 30px;
