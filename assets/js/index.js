@@ -36,11 +36,12 @@ goButton.addEventListener('click', () => {
 } else {
     console.log('City not found')
 }
+    // var userTemp = document.createElement ('li')
+    // var userWind 
+    // var userHumidity
+    // var userSunrise
+    // var userSunset
   });
-
-// grabbing city from local storage, passing it to current-day box
-
-
 
   // need to grab user city and get the lat & long
 
@@ -55,4 +56,59 @@ fetch('https://api.openweathermap.org/data/2.5/forecast?lat=34.052238&lon=-118.2
   .then(function (data) {
     console.log(data);
   });
+
+
+//   function GeoLocate() {
+//     fetch(
+//       "http://api.openweathermap.org/geo/1.0/direct?q=Seattle&limit=1&appid=7355009108da9226df5bd810ec2a29ae"
+//     )
+//       .then(function (response) {
+//         return response.json();
+//       })
+//       .then(function (data) {
+//         console.log(data);
+  
+//         lat = JSON.stringify(data[0].lat);
+//         long = JSON.stringify(data[0].lon);
+//         getWeather();
+//       });
+//   }
+  
+//   function getWeather() {
+//     fetch(
+//       "https://api.openweathermap.org/data/2.5/weather?lat=" +
+//         lat +
+//         "&lon=" +
+//         long +
+//         "&appid=7355009108da9226df5bd810ec2a29ae&units=imperial"
+//     )
+//       .then(function (response) {
+//         return response.json();
+//       })
+//       .then(function (data) {
+//         console.log(data);
+
+//         var weatherCondition =  data.weather[0].description;
+//         var temperature = Math.floor(data.main.temp.toString());
+     
+//          // Grabs parent element we need to append to
+//          var selectdaTab = document.querySelector('.weather-bod');
+     
+//          // Creates what we need to append 
+     
+//          var appendMe = document.createElement('h4');
+     
+//          // fill in dat text 
+//            appendMe.textContent = "Conditions are " + weatherCondition + ", with a tempurature of " + temperature +"°F";
+     
+//          // append element
+//            selectdaTab.appendChild(appendMe);
+           
+     
+//          });
+//      }
+    // var userWind 
+    // var userHumidity
+    // var userSunrise
+    // var userSunset
 

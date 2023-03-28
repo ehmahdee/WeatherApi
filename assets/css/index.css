@@ -9,7 +9,7 @@ nav {
     margin-left: 0%;
 }
 
-nav h1{
+nav h1 {
     font-size: 40px;
     color: white;
     font-family: 'Red Hat Display', sans-serif;
@@ -20,7 +20,7 @@ ul {
     list-style: none;
 }
 
-.border{
+.border {
     border: solid gray 1px;
 }
 
@@ -28,21 +28,13 @@ ul {
 text-align: left;
 }
 
-.cityContainer {
-
-}
-
-.userCity{
+/* .userCity {
 
 }
 
 .fiveDay {
 
-}
-
-#search-button {
-
-}
+} */
 
 #currentCity {
     font-size: 40px;
