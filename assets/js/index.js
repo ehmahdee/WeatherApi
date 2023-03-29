@@ -48,15 +48,20 @@ goButton.addEventListener('click', () => {
   //need to append info from the object into the current-day box
 
   //then need to dynamically generate five cards for each day. A day is 8 items in the array
-  
+let sunrise = []
 fetch('https://api.openweathermap.org/data/2.5/forecast?lat=34.052238&lon=-118.243340&appid=d84b2a8be5d2ca1ba21dcd598e80ef62')
 .then(function (response) {
     return response.json();
+
   })
+
   .then(function (data) {
     console.log(data);
   });
 
+  for (var i = 0; i < 10; i++) {
+    cardHeader.textContent = data.city[i].sunrise;
+  }
 
 //   function GeoLocate() {
 //     fetch(

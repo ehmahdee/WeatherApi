@@ -20,6 +20,11 @@ ul {
     list-style: none;
 }
 
+.icon {
+    margin-top: 15px;
+    margin-left: 15px;
+}
+
 .border {
     border: solid gray 1px;
 }
@@ -28,13 +33,15 @@ ul {
 text-align: left;
 }
 
-/* .userCity {
+.userCity {
 
 }
 
 .fiveDay {
-
-} */
+    color: white;
+    background-color: #1a6bd6;
+    font-family: 'Red Hat Display', sans-serif;
+} 
 
 #currentCity {
     font-size: 40px;
