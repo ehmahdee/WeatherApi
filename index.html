@@ -46,6 +46,7 @@
   </nav>
 
   <body>
+    
     <!-- City lookup input and button -->
     <div class="columns">
       <div class="column is two-fifths">
@@ -66,7 +67,6 @@
         </section>
 
         <!-- City Container -->
-
         <div class="card border">
           <div class="columns">
             <div class="column" id="searchHistoryBox">
@@ -75,10 +75,8 @@
         </div>
       </div>
 
-      
+      <!-- City, Date, Temp, Wind, Humidity Box -->
       <div class="column is-three-fifths">
-        <!-- City, Date, Temp, Wind, Humidity Box -->
-
         <section class="box border" id="currentDay">
           <ul>
             <li id="currentCity"></li>
@@ -92,8 +90,6 @@
         </section>
 
         <!-- Five day forecast cards -->
-        <!-- one day is 8 array objects. so [0] - [7] is one day -->
-
         <section class="box border">
           <p class="title is-4">5-Day Forecast:</p>
           <div class="columns">
@@ -101,45 +97,45 @@
               <h1 class="fiveDay subtitle is-4"><span id="dayOneDate"></span></h1>
               <ul>
                 <li>Weather: <span id="dayOneWeather"></span></li>
-                <li>Wind: <span id="dayOneWind"></span></li>
-                <li>Temp: <span id="dayOneTemp"></span></li>
-                <li>Humidity: <span id="dayOneHumid"></span></li>
+                <li>Wind: <span id="dayOneWind"></span>mph</li>
+                <li>Temp: <span id="dayOneTemp"></span>Fº</li>
+                <li>Humidity: <span id="dayOneHumid">%</span></li>
               </ul>
             </div>
             <div class="card column fiveDay">
               <h1 class="fiveDay subtitle is-4"><span id="dayTwoDate"></span></h1>
               <ul>
                 <li>Weather: <span id="dayTwoWeather"></span></li>
-                <li>Wind: <span id="dayTwoWind"></span></li>
-                <li>Temp: <span id="dayTwoTemp"></span></li>
-                <li>Humidity: <span id="dayTwoHumid"></span></li>
+                <li>Wind: <span id="dayTwoWind"></span>mph</li>
+                <li>Temp: <span id="dayTwoTemp"></span>Fº</li>
+                <li>Humidity: <span id="dayTwoHumid">%</span></li>
               </ul>
             </div>
             <div class="card column fiveDay">
-              <h1 class="fiveDay subtitle is-4"><span></span></h1>
+              <h1 class="fiveDay subtitle is-4"><span id="dayThreeDate"></span></h1>
               <ul>
-                <li>Weather: <span></span></li>
-                <li>Wind: <span></span></li>
-                <li>Temp: <span></span></li>
-                <li>Humidity: <span></span></li>
+                <li>Weather: <span id="dayThreeWeather"></span></li>
+                <li>Wind: <span id="dayThreeWind"></span>mph</li>
+                <li>Temp: <span id="dayThreeTemp"></span>Fº</li>
+                <li>Humidity: <span id="dayThreeHumid">%</span></li>
               </ul>
             </div>
             <div class="card column fiveDay">
-              <h1 class="fiveDay subtitle is-4"><span></span></h1>
+              <h1 class="fiveDay subtitle is-4"><span id="dayFourDate"></span></h1>
               <ul>
-                <li>Weather: <span></span></li>
-                <li>Wind: <span></span></li>
-                <li>Temp: <span></span></li>
-                <li>Humidity: <span></span></li>
+                <li>Weather: <span id="dayFourWeather"></span></li>
+                <li>Wind: <span id="dayFourWind"></span>mph</li>
+                <li>Temp: <span id="dayFourTemp"></span>Fº</li>
+                <li>Humidity: <span id="dayFourHumid">%</span></li>
               </ul>
             </div>
             <div class="card column fiveDay">
-              <h1 class="fiveDay subtitle is-4"><span></span></h1>
+              <h1 class="fiveDay subtitle is-4"><span id="dayFiveDate"></span></h1>
               <ul>
-                <li>Weather: <span></span></li>
-                <li>Wind: <span></span></li>
-                <li>Temp: <span></span></li>
-                <li>Humidity: <span></span></li>
+                <li>Weather: <span id="dayFiveWeather"></span></li>
+                <li>Wind: <span id="dayFiveWind"></span>mph</li>
+                <li>Temp: <span id="dayFiveTemp"></span>Fº</li>
+                <li>Humidity: <span id="dayFiveHumid">%</span></li>
               </ul>
             </div>
           </div>
@@ -156,45 +152,3 @@
   </body>
 </html>
 
-<!-- Weather icons -->
-
-<!-- If weather is cloudy, display Cloud-->
-<!-- Cloud 
-<i class="fa-regular fa-cloud" style="color: #818c9c;"></i> -->
-
-<!-- If weather is partly cloudy, display Partly Cloudy-->
-<!-- Partly cloudy
-<i <i class="fa-duotone fa-cloud-sun" style="--fa-primary-color: #8b9498; --fa-secondary-color: #e2a336; --fa-secondary-opacity: 1;"></i></i>-->
-
-<!-- Scatter showers <i class="fa-solid fa-cloud-sun-rain style="--fa-primary-color: #8b9498; --fa-secondary-color: #e2a336; --fa-secondary-opacity: 1;"></i>-->
-
-<!-- Rain
-<i class="fa-solid fa-cloud-showers-heavy"></i>-->
-
-<!-- Light rain <i class="fa-solid fa-cloud-rain"></i>-->
-
-<!-- Thunderstorms <i class="fa-solid fa-cloud-bolt"></i>-->
-
-<!-- Wind <i class="fa-solid fa-wind"></i>-->
-
-<!-- Snow <i class="fa-regular fa-snowflake" style="color: #82daf7;"></i>-->
-
-<!-- If weather is Tornado, Hurricane, or Blizzard, display a warning box-->
-
-<!-- Tornado <i class="fa-solid fa-tornado" style="color: #bec5d0;"></i>-->
-
-<!-- Hurricane <i class="fa-solid fa-hurricane" style="color: #d80e0e;"></i>-->
-
-<!-- I want temp icons to appear depending on temp conditions-->
-
-<!-- If Temp is above 80 degrees F, display Temp Hot-->
-
-<!-- Temp hot <i class="fa-solid fa-temperature-arrow-up"></i>-->
-
-<!-- If temp is below 50 degrees F, display Temp Cold-->
-
-<!-- Temp cold <i class="fa-solid fa-temperature-arrow-down"></i>-->
-
-<!-- else, display Temp-->
-
-<!-- Temp <i class="fa-solid fa-temperature-three-quarters"></i>-->

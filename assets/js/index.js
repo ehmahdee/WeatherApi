@@ -95,16 +95,88 @@ function fiveDayForecast(lat, lon) {
             
               .then(function (data) {
                 console.log(data);
-                
+                //day one
                 var dayOneDate = document.getElementById('dayOneDate')
                 dayOneDate.textContent = dayjs.unix(data.list[0].dt).format('MM/DD/YYYY')
 
                 var dayOneWeather = document.getElementById('dayOneWeather')
                 dayOneWeather.textContent = data.list[0].weather[0].description
                 
-              });
+                var dayOneWind = document.getElementById('dayOneWind')
+                dayOneWind.textContent = data.list[0].wind.speed
 
-}
+                var dayOneTemp = document.getElementById('dayOneTemp')
+                dayOneTemp.textContent = data.list[0].main.temp
+
+                var dayOneHumid = document.getElementById('dayOneHumid')
+                dayOneHumid.textContent = data.list[0].main.humidity
+                
+                //day two
+                var dayTwoDate = document.getElementById('dayTwoDate')
+                dayTwoDate.textContent = dayjs.unix(data.list[8].dt).format('MM/DD/YYYY')
+
+                var dayTwoWeather = document.getElementById('dayTwoWeather')
+                dayTwoWeather.textContent = data.list[8].weather[0].description
+                
+                var dayTwoWind = document.getElementById('dayTwoWind')
+                dayTwoWind.textContent = data.list[8].wind.speed
+
+                var dayTwoTemp = document.getElementById('dayTwoTemp')
+                dayTwoTemp.textContent = data.list[8].main.temp
+
+                var dayTwoHumid = document.getElementById('dayTwoHumid')
+                dayTwoHumid.textContent = data.list[8].main.humidity
+
+                //day three
+                var dayThreeDate = document.getElementById('dayThreeDate')
+                dayThreeDate.textContent = dayjs.unix(data.list[16].dt).format('MM/DD/YYYY')
+
+                var dayThreeWeather = document.getElementById('dayThreeWeather')
+                dayThreeWeather.textContent = data.list[16].weather[0].description
+                
+                var dayThreeWind = document.getElementById('dayThreeWind')
+                dayThreeWind.textContent = data.list[16].wind.speed
+
+                var dayThreeTemp = document.getElementById('dayThreeTemp')
+                dayThreeTemp.textContent = data.list[16].main.temp
+
+                var dayThreeHumid = document.getElementById('dayThreeHumid')
+                dayThreeHumid.textContent = data.list[16].main.humidity
+
+                //day four
+                var dayFourDate = document.getElementById('dayFourDate')
+                dayFourDate.textContent = dayjs.unix(data.list[24].dt).format('MM/DD/YYYY')
+
+                var dayFourWeather = document.getElementById('dayFourWeather')
+                dayFourWeather.textContent = data.list[24].weather[0].description
+                
+                var dayFourWind = document.getElementById('dayFourWind')
+                dayFourWind.textContent = data.list[24].wind.speed
+
+                var dayFourTemp = document.getElementById('dayFourTemp')
+                dayFourTemp.textContent = data.list[24].main.temp
+
+                var dayFourHumid = document.getElementById('dayFourHumid')
+                dayFourHumid.textContent = data.list[24].main.humidity
+
+                //day five
+                var dayFiveDate = document.getElementById('dayFiveDate')
+                dayFiveDate.textContent = dayjs.unix(data.list[32].dt).format('MM/DD/YYYY')
+
+                var dayFiveWeather = document.getElementById('dayFiveWeather')
+                dayFiveWeather.textContent = data.list[32].weather[0].description
+                
+                var dayFiveWind = document.getElementById('dayFiveWind')
+                dayFiveWind.textContent = data.list[32].wind.speed
+
+                var dayFiveTemp = document.getElementById('dayFiveTemp')
+                dayFiveTemp.textContent = data.list[32].main.temp
+
+                var dayFiveHumid = document.getElementById('dayFiveHumid')
+                dayFiveHumid.textContent = data.list[32].main.humidity
+              })
+              }
+
 
     
 
