@@ -1,7 +1,8 @@
-//Current Time
+// var city = document.getElementByID("city");
 var locationBox = document.getElementById('locationBox');
 var goButton = document.getElementById('go-button');
 
+//Current Time
 var now = dayjs();
 
 $('#headerTime').text(now.format('MMM D, YYYY, h:mm a'));
@@ -14,10 +15,14 @@ function updateTime() {
 
 setInterval(updateTime, 1000);
 
+//make current weather call
+
+ 
 //saving city to local storage
 
 goButton.addEventListener('click', () => {
     var userCity = locationBox.value;
+    fetchCurrentWeather(userCity);
 
     localStorage.setItem('city', userCity);
     console.log(userCity)
@@ -27,12 +32,14 @@ goButton.addEventListener('click', () => {
     var cityTitle = document.createElement('h2')
     cityTitle.textContent = heroCity;
 
+    //add to search history
     var searchHistory = document.createElement('h2')
     searchHistory.textContent = heroCity;
     
     var searchHistoryBox = document.getElementById('searchHistoryBox')
     searchHistoryBox.appendChild(searchHistory)
 
+    //prevents cities from duplicating in the current day box
     var currentDay = document.getElementById('currentCity');
     while (currentDay.firstChild) {
     currentDay.removeChild(currentDay.firstChild);
@@ -42,37 +49,113 @@ goButton.addEventListener('click', () => {
 } else {
     console.log('City not found')
 }
-//  var searchHistory = localStorage.getItem('city');
-//  var 
 
-    // var userTemp = document.createElement ('li')
+})
+
+function fetchCurrentWeather(city) {
+
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=d84b2a8be5d2ca1ba21dcd598e80ef62&units=imperial`)
+
+        .then(function (response) {return response.json();})
+        
+        .then(function (data) {
+            console.log(data);
+        }) 
+        var nowTemp = document.getElementById('currentTemp');
+        nowTemp.appendChild(data.main.temp)
+}
+
+//make 5-day fetch call
+function fiveDayForecast(lat, lon) {
+    fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=d84b2a8be5d2ca1ba21dcd598e80ef62&units=imperial`)
+            .then(function (response) {
+                return response.json();
+            
+              })
+            
+              .then(function (data) {
+                console.log(data);
+
+                let lon = data.coord.lon;
+                let lat = data.coord.lat;
+                fiveDayForecast(lat, lon)
+              });
+
+}
+
     // var userWind 
     // var userHumidity
     // var userSunrise
     // var userSunset
-  });
 
-  // need to grab user city and get the lat & long
+
+    
+    
+ // need to grab user city and get the lat & long
+  
 
   //need to append info from the object into the current-day box
 
   //then need to dynamically generate five cards for each day. A day is 8 items in the array
-let sunrise = []
-fetch('https://api.openweathermap.org/data/2.5/forecast?lat=34.052238&lon=-118.243340&appid=d84b2a8be5d2ca1ba21dcd598e80ef62')
-.then(function (response) {
-    return response.json();
 
-  })
+// fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${data.coord.lat}&lon=${data.coord.lon}&appid=d84b2a8be5d2ca1ba21dcd598e80ef62&units=imperial`)
+// .then(function (response) {
+//     return response.json();
 
-  .then(function (data) {
-    console.log(data);
-  });
+//   })
 
-  for (var i = 0; i < 10; i++) {
-    cardHeader.textContent = data.city[i].sunrise;
+//   .then(function (data) {
+//     console.log(data);
+//   });
 
-    cardText.textContent = data.list[0].main.temp;
-  }
+//   for (i = 0; i < timeHours.length; i++) {
+//     var date = new Date(data.list[timeHours[i]].dt * 1000);
+//     var dateString = `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`;
+   
+//     var currentCity = data.list[timeHours[i]].name
+//     var icon = data.list[timeHours[i]].weather[0].icon;
+//     var temp = data.list[timeHours[i]].main.temp;
+//     var wind = data.list[timeHours[i]].wind.speed;
+//     var humidity = data.list[timeHours[i]].main.humidity;
+
+
+//     var dateEl = document.createElement("h4");
+//     var iconEl = document.createElement("img");
+//     var listEl = document.createElement("ul");
+//     var tempEl = document.createElement("li");
+//     var windEl = document.createElement("li");
+//     var humidityEl = document.createElement("li");
+
+
+
+
+
+
+//     fiveDays[i].appendChild(dateEl);
+//     fiveDays[i].appendChild(iconEl);
+//     fiveDays[i].appendChild(listEl);
+//     listEl.appendChild(tempEl);
+//     listEl.appendChild(windEl);
+//     listEl.appendChild(humidityEl);
+
+
+//     dateEl.textContent = dateString;
+//     iconEl.setAttribute("src", `http://openweathermap.org/img/w/${icon}.png`)
+//     tempEl.textContent = `temp: ${temp} °F`;
+//     windEl.textContent = `wind: ${wind} MPH`;
+//     humidityEl.textContent = `humidity: ${humidity}%`;
+//     currentCity.textContent = `data${name}`;
+
+
+// }
+// futureDays.style.visibility = "visible";
+// };
+
+//   for (var i = 0; i < 10; i++) {
+//     cardHeader.textContent = data.city[i].sunrise;
+
+//     cardText.textContent = data.list[0].main.temp;
+//   }
 
 //   function GeoLocate() {
 //     fetch(
@@ -127,4 +210,3 @@ fetch('https://api.openweathermap.org/data/2.5/forecast?lat=34.052238&lon=-118.2
     // var userHumidity
     // var userSunrise
     // var userSunset
-

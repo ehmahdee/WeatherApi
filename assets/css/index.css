@@ -61,4 +61,13 @@ text-align: left;
     height: 40px;
 }
 
+#searchHistoryBox{
+    text-align: center;
+    font-size: 20px;
+    background-color: #1a6bd6;
+    color: white;
+    border: solid 3px white;
+    margin: 10px;
+}
+
 @import "https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css";
