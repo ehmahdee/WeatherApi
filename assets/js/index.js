@@ -18,7 +18,7 @@ setInterval(updateTime, 1000);
 
 goButton.addEventListener('click', () => {
     var userCity = locationBox.value;
-  
+
     localStorage.setItem('city', userCity);
     console.log(userCity)
 
@@ -26,6 +26,12 @@ goButton.addEventListener('click', () => {
     if (heroCity) {
     var cityTitle = document.createElement('h2')
     cityTitle.textContent = heroCity;
+
+    var searchHistory = document.createElement('h2')
+    searchHistory.textContent = heroCity;
+    
+    var searchHistoryBox = document.getElementById('searchHistoryBox')
+    searchHistoryBox.appendChild(searchHistory)
 
     var currentDay = document.getElementById('currentCity');
     while (currentDay.firstChild) {
@@ -36,6 +42,9 @@ goButton.addEventListener('click', () => {
 } else {
     console.log('City not found')
 }
+//  var searchHistory = localStorage.getItem('city');
+//  var 
+
     // var userTemp = document.createElement ('li')
     // var userWind 
     // var userHumidity
@@ -61,6 +70,8 @@ fetch('https://api.openweathermap.org/data/2.5/forecast?lat=34.052238&lon=-118.2
 
   for (var i = 0; i < 10; i++) {
     cardHeader.textContent = data.city[i].sunrise;
+
+    cardText.textContent = data.list[0].main.temp;
   }
 
 //   function GeoLocate() {

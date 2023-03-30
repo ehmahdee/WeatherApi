@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <link rel="stylesheet" href="./assets/css/index.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+    <link rel="stylesheet" href="./assets/css/index.css" />
     <title>Weather Dashboard</title>
 
     <!-- Font links -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- dayjs link -->
     <script
@@ -21,147 +27,137 @@
     ></script>
 
     <!-- Font Awesome -->
-    <script src="https://kit.fontawesome.com/f3e5b655dc.js" crossorigin="anonymous"></script>
-</head>
+    <script
+      src="https://kit.fontawesome.com/f3e5b655dc.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
 
-
-<nav class="navbar">
-    <h1 class="navbar-brand">Weather Dashboard <span class="icon"><i class="fas fa-sun" style="color: #f5b505;"></i></span></h1>
-    <div class="navbar-end" >
-    <p id="headerTime">Current Time: </p>
+  <nav class="navbar">
+    <h1 class="navbar-brand">
+      Weather Dashboard
+      <span class="icon"
+        ><i class="fas fa-sun" style="color: #f5b505"></i
+      ></span>
+    </h1>
+    <div class="navbar-end">
+      <p id="headerTime">Current Time:</p>
     </div>
-</nav>
+  </nav>
 
-
-<body>
+  <body>
     <!-- City lookup input and button -->
-<div class="columns">
-<div class="column">
-    <section class="box border">
-        <div class="searchCard">
+    <div class="columns">
+      <div class="column is two-fifths">
+        <section class="box border">
+          <div class="searchCard">
             <p>Search for a City:</p>
-            <input class="input is-medium" id="locationBox" placeholder="Los Angeles">
-        </div>
-        <div class="has-text-centered">
-        <button type="button" class="button is-info" id="go-button" >Go!</button>
-        </div>
-    </section>
+            <input
+              class="input is-medium"
+              id="locationBox"
+              placeholder="Los Angeles"
+            />
+          </div>
+          <div class="has-text-centered">
+            <button type="button" class="button is-info" id="go-button">
+              Go!
+            </button>
+          </div>
+        </section>
 
-    <!-- City Container -->
-    
-    <div class="card border">
-        <div class="columns">
-            <div class="column">
-                <div>
-                <button class="button is-info is-fullwidth">New York</button>
-                </div>
-                <div>
-                <button class="button is-info is-fullwidth">Georgia</button>
-                </div>
-                <div>
-                <button class="button is-info is-fullwidth">Chicago</button>
-            </div>
-            <div>
-                <button class="button is-info is-fullwidth">Houston</button>
-            </div>
-            <div>
-                <button class="button is-info is-fullwidth">Denver</button>
-            </div>
-            <div>
-                <button class="button is-info is-fullwidth">Las Vegas</button>
-            </div>
-            <div>
-                <button class="button is-info is-fullwidth">Seattle</button>
-            </div>
-            <div>
-                <button class="button is-info is-fullwidth">San Francisco</button>
-            </div>
-            <div>
-                <button class="button is-info is-fullwidth">Los Angeles</button>
-            </div>
-            <div>
-                <button class="button is-info is-fullwidth">San Diego</button>
-            </div>
-            <div>
-                <button class="button is-info is-fullwidth">Honolulu</button>
-            </div>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="column is-three-fifths">
-    <!-- City, Date, Temp, Wind, Humidity Box -->
+        <!-- City Container -->
 
-    <section class="box border" id="currentDay">
-        <ul>
+        <div class="card border">
+          <div class="columns">
+            <div class="column" id="searchHistoryBox">
+              
+              
+              
+              
+              
+            </div>
+          </div>
+        </div>
+      </div>
+
+      
+      <div class="column is-three-fifths">
+        <!-- City, Date, Temp, Wind, Humidity Box -->
+
+        <section class="box border" id="currentDay">
+          <ul>
             <li id="currentCity"></li>
-            <li id="currentTemp">Temp: </li>
-            <li id="currentWind">Wind: </li>
-            <li id="currentHumidity">Humidity: </li>
-            <li id="currentSunrise">Sunrise: </li>
-            <li id="currentSunset">Sunset: </li>
-        </ul>
-    </section>
+            <li id="currentTemp">Temp:</li>
+            <li id="currentWind">Wind:</li>
+            <li id="currentHumidity">Humidity:</li>
+            <li id="currentSunrise">Sunrise:</li>
+            <li id="currentSunset">Sunset:</li>
+          </ul>
+        </section>
 
-    <!-- Five day forecast cards -->
-    <!-- one day is 8 array objects. so [0] - [7] is one day -->
+        <!-- Five day forecast cards -->
+        <!-- one day is 8 array objects. so [0] - [7] is one day -->
 
-    <section class="box border">
-        <p class="title is-4">5-Day Forecast:</p>
-        <div class="columns">
-
+        <section class="box border">
+          <p class="title is-4">5-Day Forecast:</p>
+          <div class="columns">
             <div class="card column fiveDay" id="">
-                <h1 class="fiveDay subtitle is-4">Day 1</h1>
-            <ul>
-                <li>Weather: </li>
-                <li>Wind: </li>
-                <li>Temp: </li>
-            </ul>
+              <h1 class="fiveDay subtitle is-4">Day 1</h1>
+              <ul>
+                <li>Weather:</li>
+                <li>Wind:</li>
+                <li>Temp:</li>
+                <li>Humidity:</li>
+              </ul>
             </div>
             <div class="card column fiveDay">
-                <h1 class="fiveDay subtitle is-4">Day 2</h1>
-                <ul>
-                    <li>Weather: </li>
-                    <li>Wind: </li>
-                    <li>Temp: </li>
-                </ul>
+              <h1 class="fiveDay subtitle is-4">Day 2</h1>
+              <ul>
+                <li>Weather:</li>
+                <li>Wind:</li>
+                <li>Temp:</li>
+                <li>Humidity:</li>
+              </ul>
             </div>
             <div class="card column fiveDay">
-                <h1 class="fiveDay subtitle is-4">Day 3</h1>
-                <ul>
-                    <li>Weather: </li>
-                    <li>Wind: </li>
-                    <li>Temp: </li>
-                </ul>
+              <h1 class="fiveDay subtitle is-4">Day 3</h1>
+              <ul>
+                <li>Weather:</li>
+                <li>Wind:</li>
+                <li>Temp:</li>
+              </ul>
             </div>
             <div class="card column fiveDay">
-                <h1 class="fiveDay subtitle is-4">Day 4</h1>
-                <ul>
-                    <li>Weather: </li>
-                    <li>Wind: </li>
-                    <li>Temp: </li>
-                </ul>
+              <h1 class="fiveDay subtitle is-4">Day 4</h1>
+              <ul>
+                <li>Weather:</li>
+                <li>Wind:</li>
+                <li>Temp:</li>
+                <li>Humidity:</li>
+              </ul>
             </div>
             <div class="card column fiveDay">
-                <h1 class="fiveDay subtitle is-4">Day 5</h1>
-                <ul>
-                    <li>Weather: </li>
-                    <li>Wind: </li>
-                    <li>Temp: </li>
-                </ul>
+              <h1 class="fiveDay subtitle is-4">Day 5</h1>
+              <ul>
+                <li>Weather:</li>
+                <li>Wind:</li>
+                <li>Temp:</li>
+                <li>Humidity:</li>
+              </ul>
             </div>
-        </div>
-    </section>
-</div>
-</div>
+          </div>
+        </section>
+      </div>
+    </div>
     <!--Script section-->
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"
-        integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8=" crossorigin="anonymous"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.6.4.min.js"
+      integrity="sha256-oP6HI9z1XaZNBrJURtCoUT5SUnxFr8s3BzRl+cbzUq8="
+      crossorigin="anonymous"
+    ></script>
     <script src="./assets/js/index.js"></script>
-</body>
+  </body>
 </html>
-
-
 
 <!-- Weather icons -->
 
@@ -205,6 +201,3 @@
 <!-- else, display Temp-->
 
 <!-- Temp <i class="fa-solid fa-temperature-three-quarters"></i>-->
-
-
-
