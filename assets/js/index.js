@@ -17,7 +17,7 @@ setInterval(updateTime, 1000);
 
 //make current weather call
 
- 
+
 //saving city to local storage
 
 goButton.addEventListener('click', () => {
