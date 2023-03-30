@@ -21,6 +21,8 @@ ul {
     list-style: none;
 }
 
+
+
 .icon {
     margin-top: 15px;
     margin-left: 15px;
@@ -34,10 +36,6 @@ ul {
 text-align: left;
 }
 
-.userCity {
-
-}
-
 .fiveDay {
     color: white;
     background-color: #1a6bd6;
@@ -46,6 +44,12 @@ text-align: left;
 
 #currentCity {
     font-size: 40px;
+    font-family: 'Red Hat Display', sans-serif;
+    text-align: center;
+}
+
+#currentWeatherConditions {
+    font-size: 25px;
     font-family: 'Red Hat Display', sans-serif;
     text-align: center;
 }
@@ -64,7 +68,7 @@ text-align: left;
 #searchHistoryBox{
     text-align: center;
     font-size: 20px;
-    background-color: #1a6bd6;
+    
     color: white;
     border: solid 3px white;
     margin: 10px;

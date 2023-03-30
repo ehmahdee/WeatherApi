@@ -33,11 +33,12 @@ goButton.addEventListener('click', () => {
     cityTitle.textContent = heroCity;
 
     //add to search history
-    var searchHistory = document.createElement('h2')
+    var searchHistory = document.createElement('a')
     searchHistory.textContent = heroCity;
     
     var searchHistoryBox = document.getElementById('searchHistoryBox')
     searchHistoryBox.appendChild(searchHistory)
+    searchHistoryBox.setAttribute("class", "button is-link is-light is-fullwidth")
 
     //prevents cities from duplicating in the current day box
     var currentDay = document.getElementById('currentCity');
@@ -61,9 +62,10 @@ function fetchCurrentWeather(city) {
         .then(function (data) {
             console.log(data);
 
-            var nowCurrentConditions = document.getElementById('currentWeatherConditons');
+            var nowCurrentConditions = document.getElementById('currentWeatherConditions');
             nowCurrentConditions.textContent = data.weather[0].description
             console.log(data.weather[0].description)
+
             var nowTemp = document.getElementById('currentTemp');
             nowTemp.textContent = data.main.temp
 
@@ -78,7 +80,10 @@ function fetchCurrentWeather(city) {
 
             var nowSunset = document.getElementById('currentSunset');
             nowSunset.textContent = data.sys.sunset
-
+            
+            let lon = data.coord.lon;
+            let lat = data.coord.lat;
+            fiveDayForecast(lat, lon)
         }) 
 }
 
@@ -86,16 +91,12 @@ function fetchCurrentWeather(city) {
 function fiveDayForecast(lat, lon) {
     fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=d84b2a8be5d2ca1ba21dcd598e80ef62&units=imperial`)
             .then(function (response) {
-                return response.json();
-            
-              })
+                return response.json();})
             
               .then(function (data) {
                 console.log(data);
 
-                let lon = data.coord.lon;
-                let lat = data.coord.lat;
-                fiveDayForecast(lat, lon)
+                
               });
 
 }
