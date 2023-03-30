@@ -60,9 +60,9 @@ function fetchCurrentWeather(city) {
         
         .then(function (data) {
             console.log(data);
+            var nowTemp = document.getElementById('currentTemp');
+        nowTemp.textContent = data.main.temp
         }) 
-        var nowTemp = document.getElementById('currentTemp');
-        nowTemp.appendChild(data.main.temp)
 }
 
 //make 5-day fetch call
