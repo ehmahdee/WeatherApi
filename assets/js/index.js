@@ -60,8 +60,25 @@ function fetchCurrentWeather(city) {
         
         .then(function (data) {
             console.log(data);
+
+            var nowCurrentConditions = document.getElementById('currentWeatherConditons');
+            nowCurrentConditions.textContent = data.weather[0].description
+            console.log(data.weather[0].description)
             var nowTemp = document.getElementById('currentTemp');
-        nowTemp.textContent = data.main.temp
+            nowTemp.textContent = data.main.temp
+
+            var nowWind = document.getElementById('currentWind');
+            nowWind.textContent = data.wind.speed
+
+            var nowHumid = document.getElementById('currentHumidity');
+            nowHumid.textContent = data.main.humidity
+
+            var nowSunrise = document.getElementById('currentSunrise');
+            nowSunrise.textContent = data.sys.sunrise
+
+            var nowSunset = document.getElementById('currentSunset');
+            nowSunset.textContent = data.sys.sunset
+
         }) 
 }
 
@@ -83,10 +100,7 @@ function fiveDayForecast(lat, lon) {
 
 }
 
-    // var userWind 
-    // var userHumidity
-    // var userSunrise
-    // var userSunset
+    
 
 
     
