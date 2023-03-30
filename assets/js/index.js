@@ -76,10 +76,10 @@ function fetchCurrentWeather(city) {
             nowHumid.textContent = data.main.humidity
 
             var nowSunrise = document.getElementById('currentSunrise');
-            nowSunrise.textContent = data.sys.sunrise
+            nowSunrise.textContent = dayjs.unix(data.sys.sunrise).format('h:mm:ss a')
 
             var nowSunset = document.getElementById('currentSunset');
-            nowSunset.textContent = data.sys.sunset
+            nowSunset.textContent = dayjs.unix(data.sys.sunset).format('h:mm:ss a')
             
             let lon = data.coord.lon;
             let lat = data.coord.lat;
@@ -95,7 +95,12 @@ function fiveDayForecast(lat, lon) {
             
               .then(function (data) {
                 console.log(data);
+                
+                var dayOneDate = document.getElementById('dayOneDate')
+                dayOneDate.textContent = dayjs.unix(data.list[0].dt).format('MM/DD/YYYY')
 
+                var dayOneWeather = document.getElementById('dayOneWeather')
+                dayOneWeather.textContent = data.list[0].weather[0].description
                 
               });
 
